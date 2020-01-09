@@ -33,5 +33,6 @@ build/
 ### myself ###
 logs/
 .mvn/
+.mvn/wrapper/
 mvnw
 mvnw.cmd
