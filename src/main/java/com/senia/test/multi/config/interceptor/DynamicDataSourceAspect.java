@@ -29,7 +29,7 @@ public class DynamicDataSourceAspect  {
      */
     @Before("@annotation(dataSource))")
     public void switchDataSource(JoinPoint point, DataSource dataSource) {
-        log.info("++++++++++++++++++++++++++++++++");
+        log.error("++++++++++++++++++++++++++++++++");
         if (!DynamicDataSourceContextHolder.containDataSourceKey(dataSource.value())) {
             System.out.println("DataSource [{}] doesn't exist, use default DataSource [{}] " + dataSource.value());
         } else {
