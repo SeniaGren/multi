@@ -1,5 +1,6 @@
 package com.senia.test.multi.service.impl;
 
+import com.senia.test.multi.entity.PageParameter;
 import com.senia.test.multi.entity.UserDo;
 import com.senia.test.multi.mapper.UserMapper;
 import com.senia.test.multi.service.UserService;
@@ -19,5 +20,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserDo> findAll() {
         return userMapper.findAll();
+    }
+    @Override
+    public List<UserDo> findAllPage(PageParameter page) {
+        return userMapper.findAllPage(page);
     }
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import com.senia.test.multi.config.interceptor.InterceptorForQry;
+import com.senia.test.multi.config.interceptor.PageInterceptor;
 import com.senia.test.multi.config.interceptor.SqlCostInterceptor;
 import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -59,7 +60,7 @@ public class MybatisConfig  {
         // 配置数据源，此处配置为关键配置，如果没有将 dynamicDataSource作为数据源则不能实现切换
         sessionFactory.setDataSource(dynamicDataSource());
         // 做主从分离时，自定义了SqlSessionFactory，导致此拦截器没有注入
-        sessionFactory.setPlugins(new Interceptor[]{sqlCostInterceptor(),interceptorForQry()});
+        sessionFactory.setPlugins(new Interceptor[]{sqlCostInterceptor(),interceptorForQry(),pageInterceptor()});
 //        sessionFactory.setTypeAliasesPackage("com.senia.test.multi.entity");    // 扫描Model
 //        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 //        sessionFactory.setMapperLocations(resolver.getResources("classpath*:**/mapper/*.xml"));    // 扫描映射文件
@@ -82,5 +83,10 @@ public class MybatisConfig  {
     public InterceptorForQry interceptorForQry(){
         //查询结果
         return new InterceptorForQry();
+    }
+    @Bean
+    public PageInterceptor pageInterceptor(){
+        //查询结果
+        return new PageInterceptor();
     }
 }
