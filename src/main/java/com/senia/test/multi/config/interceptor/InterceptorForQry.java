@@ -13,10 +13,8 @@ import java.util.Properties;
 /**
  * @author senia
  */
-@Component
 @Slf4j
-@Intercepts({@Signature(type = Executor.class, method = "query", args = {MappedStatement.class,
-        Object.class, RowBounds.class, ResultHandler.class})})
+@Intercepts({@Signature(type = Executor.class, method = "query", args = {MappedStatement.class,Object.class, RowBounds.class, ResultHandler.class})})
 public class InterceptorForQry implements Interceptor {
 
     @Override
@@ -34,6 +32,7 @@ public class InterceptorForQry implements Interceptor {
     {
         return Plugin.wrap(target, this);
     }
+
     @Override
     public void setProperties(Properties arg0)
     {}
