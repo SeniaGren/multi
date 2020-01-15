@@ -11,4 +11,7 @@ public interface UserService {
 
     public List<UserDo> findAllPage(PageParameter page);
 
+    UserDo findByName(String name);
+
+    UserDo findById(String id);
 }

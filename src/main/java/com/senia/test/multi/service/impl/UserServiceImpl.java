@@ -25,4 +25,16 @@ public class UserServiceImpl implements UserService {
     public List<UserDo> findAllPage(PageParameter page) {
         return userMapper.findAllPage(page);
     }
+
+    @Override
+    public UserDo findByName(String name) {
+        return userMapper.findByName(name);
+    }
+
+    @Override
+    public UserDo findById(String id) {
+        return userMapper.findById(id);
+    }
+
+
 }

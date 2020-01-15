@@ -6,12 +6,15 @@ import lombok.NoArgsConstructor;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * 角色类
+ * @author senia
+ */
+
 @Data
 @NoArgsConstructor
-public class UserDo {
-    private Integer id;
+public class RoleDo {
+    private String id;
     private String name;
-    private String type;
-    private String password;
-    private Set<RoleDo> roles = new HashSet<>();
+    private Set<PermissionDo> permissions = new HashSet<PermissionDo>();
 }
